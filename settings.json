@@ -1,0 +1,319 @@
+{
+    "workbench.iconTheme": "vscode-icons",
+    // vim setting
+    "vim.smartRelativeLine": true,
+    "vim.sneak": true,
+    "vim.sneakUseIgnorecaseAndSmartcase": true,
+    "vim.wrapscan": false,
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.autoindent": true,
+    // highligth yank text
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.color": "#d7e9c4",
+    "vim.highlightedyank.duration": 100,
+    "vim.leader": "<space>",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "g",
+                "h"
+            ],
+            "commands": [
+                "editor.action.showDefinitionPreviewHover"
+            ]
+        },
+        // add new empty line down or up the cursor
+        {
+            "before": [
+                "<leader>",
+                "O"
+            ],
+            "after": [
+                "O",
+                "<Esc>",
+                "j",
+                "^"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "o"
+            ],
+            "after": [
+                "m",
+                "t",
+                "o",
+                "<Esc>",
+                "k",
+                "`",
+                "t"
+            ]
+        },
+        // open folder explorer
+        {
+            "before": [
+                "<leader>",
+                "e"
+            ],
+            "commands": [
+                "workbench.view.explorer"
+            ]
+        },
+        // switch b/w buffers
+        {
+            "before": [
+                "<S-h>"
+            ],
+            "commands": [
+                ":bprevious"
+            ]
+        },
+        {
+            "before": [
+                "<S-l>"
+            ],
+            "commands": [
+                ":bnext"
+            ]
+        },
+        // splits
+        {
+            "before": [
+                "leader",
+                "v"
+            ],
+            "commands": [
+                ":vsplit"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "s"
+            ],
+            "commands": [
+                ":split"
+            ]
+        },
+        // panes
+        {
+            "before": [
+                "leader",
+                "h"
+            ],
+            "commands": [
+                "workbench.action.focusLeftGroup"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l"
+            ],
+            "commands": [
+                "workbench.action.focusRightGroup"
+            ]
+        },
+        // add ; to the end of line in cpp
+        {
+            "before": [
+                "<leader>",
+                ";"
+            ],
+            "after": [
+                "A",
+                ";",
+                "<Esc>"
+            ]
+        },
+        // quick open file
+        {
+            "before": [
+                "leader",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        // add comment quick by comments plugins
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "c"
+            ],
+            "after": [
+                "O",
+                "/",
+                "*",
+                "*",
+                "\n",
+            ]
+        },
+        {
+            "before": [
+                "<C-l>"
+            ],
+            "commands": [
+                ":nohl"
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "lineBreakInsert"
+            ],
+            "silent": true
+        }
+    ],
+    "vim.visualModeKeyBindings": [
+        // stay in visual mode while indenting
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        // Move selected lines while staying in visual mode
+        {
+            "before": [
+                "J"
+            ],
+            "commands": [
+                "editor.action.moveLinesDownAction"
+            ]
+        },
+        {
+            "before": [
+                "K"
+            ],
+            "commands": [
+                "editor.action.moveLinesUpAction"
+            ]
+        },
+    ],
+    "vim.handleKeys": {
+        "<C-w>": false,
+        "<C-f>": false,
+        "<C-e>": false,
+        "<C-s>": false,
+        "<C-k>": false,
+        // "<C-p>": false,
+    },
+    // To improve performance
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
+    // vim ctrl-d/u 以20行为单位
+    "vim.scroll": 20,
+    // fix hjkl open zc block
+    "vim.foldfix": true,
+    // **************end of vim setting *******************//
+    "editor.formatOnSave": true,
+    "editor.suggest.insertMode": "replace",
+    "editor.fontSize": 14,
+    "editor.minimap.enabled": false,
+    "cmake.configureOnOpen": true,
+    /**********
+    * Clangd *
+    **********/
+    // Clangd 运行参数(在终端/命令行输入 clangd --help-list-hidden 可查看更多)
+    "clangd.path": "/home/xia/.config/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/17.0.3/clangd_17.0.3/bin/clangd",
+    "clangd.onConfigChanged": "restart",
+    "clangd.arguments": [
+        // 启用 Clang-Tidy 以提供「静态检查」
+        "--clang-tidy",
+        // compelie_commands.json 文件的目录位置(相对于工作区，由于 CMake 生成的该文件默认在 build 文件夹中，故设置为 build)
+        "--compile-commands-dir=build",
+        // 建议风格：打包(重载函数只会给出一个建议）；反可以设置为detailed
+        "--completion-style=bundled",
+        // 默认格式化风格: 谷歌开源项目代码指南（可用的有 LLVM, Google, Chromium, Mozilla, Webkit, Microsoft, GNU 等）
+        "--fallback-style=Google",
+        // 启用这项时，补全函数时，将会给参数提供占位符，键入后按 Tab 可以切换到下一占位符，乃至函数末
+        // 我选择禁用
+        "--function-arg-placeholders=true",
+        // 输入建议中，已包含头文件的项与还未包含头文件的项会以圆点加以区分
+        "--header-insertion-decorators",
+        // 允许补充头文件
+        "--header-insertion=iwyu",
+        // 跨文件重命名变量
+        "--cross-file-rename",
+        // 让 Clangd 生成更详细的日志
+        "--log=verbose",
+        // pch优化的位置(memory 或 disk，选择memory会增加内存开销，但会提升性能)
+        "--pch-storage=memory",
+        // 输出的 JSON 文件更美观
+        "--pretty",
+        // 在后台自动分析文件(基于 complie_commands，我们用CMake生成)
+        "--background-index",
+        // 建议排序模型
+        "--ranking-model=heuristics",
+        // 同时开启的任务数量
+        "-j=3"
+    ],
+    // 自动检测 clangd 更新
+    "clangd.checkUpdates": true,
+    // clangd的snippets有很多的跳转点，不用这个就必须手动触发Intellisense了
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "cmake.showOptionsMovedNotification": false,
+    "editor.cursorSurroundingLines": 8,
+    "editor.wordBasedSuggestionsMode": "currentDocument" | "matchingDocuments" | "allDocuments",
+    "editor.lineHeight": 20,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    // highlightline
+    "highlightLine.borderColor": "RGB(255, 255, 255, 0.1)",
+    "highlightLine.borderWidth": "20px",
+    "security.workspace.trust.untrustedFiles": "open",
+    "terminal.integrated.inheritEnv": false,
+    "update.mode": "none",
+    "workbench.colorTheme": "Default Dark+",
+    "terminal.integrated.defaultProfile.linux": "tmux-shell",
+    "terminal.integrated.profiles.linux": {
+        "tmux-shell": {
+            "path": "tmux",
+            "args": [
+                "new-session",
+                "-A",
+                "-s",
+                "vscode-${workspaceFolder}"
+            ]
+        }
+    },
+    "cmake.additionalCompilerSearchDirs": [
+        "/home/xia/rv1106_toolchain/toolchain-arm_cortex-a7+neon-vfpv4_gcc-11.2.0_uClibc_eabi"
+    ],
+    "cmake.options.statusBarVisibility": "visible",
+    "window.menuBarVisibility": "toggle",
+    "cmake.configureOnEdit": false,
+}
