@@ -277,17 +277,20 @@
         "--background-index",
         // 建议排序模型
         "--ranking-model=heuristics",
+        // provides more comprehensive code completion suggestions by including completion items from all enclosing scopes, not just the immediate scope.
+        "--all-scopes-completion",
+        // make the g++ and gcc path to find include header files
+        "--query-driver=/usr/bin/gcc*,/usr/bin/g++*,/home/xia/rv1106_toolchain/toolchain-arm_cortex-a7+neon-vfpv4_gcc-11.2.0_uClibc_eabi/bin/arm-openwrt-linux-g++, /home/xia/rv1106_toolchain/toolchain-arm_cortex-a7+neon-vfpv4_gcc-11.2.0_uClibc_eabi/bin/arm-openwrt-linux-gcc",
         // 同时开启的任务数量
-        "-j=3"
+        "-j=6"
     ],
     // 自动检测 clangd 更新
     "clangd.checkUpdates": true,
     // clangd的snippets有很多的跳转点，不用这个就必须手动触发Intellisense了
-    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": true,
     "C_Cpp.intelliSenseEngine": "disabled",
     "cmake.showOptionsMovedNotification": false,
     "editor.cursorSurroundingLines": 8,
-    "editor.wordBasedSuggestionsMode": "currentDocument" | "matchingDocuments" | "allDocuments",
     "editor.lineHeight": 20,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
@@ -301,19 +304,19 @@
     "terminal.integrated.defaultProfile.linux": "tmux-shell",
     "terminal.integrated.profiles.linux": {
         "tmux-shell": {
-            "path": "tmux",
+            "path": "/home/xia/.config/Code/User/tmuxsession.sh",
             "args": [
-                "new-session",
-                "-A",
-                "-s",
-                "vscode-${workspaceFolder}"
+                "${workspaceFolder}"
             ]
         }
     },
-    "cmake.additionalCompilerSearchDirs": [
-        "/home/xia/rv1106_toolchain/toolchain-arm_cortex-a7+neon-vfpv4_gcc-11.2.0_uClibc_eabi"
-    ],
     "cmake.options.statusBarVisibility": "visible",
     "window.menuBarVisibility": "toggle",
     "cmake.configureOnEdit": false,
+    "cmake.automaticReconfigure": false,
+    "editor.largeFileOptimizations": false,
+    "vim.enableNeovim": true,
+    "vim.neovimPath": "/usr/bin/nvim",
+    "gitlens.ai.experimental.provider": "openai",
+    "gitlens.ai.experimental.openai.model": "gpt-3.5-turbo-1106",
 }

@@ -74,11 +74,11 @@
         "when": "editorHoverFocused"
     },
     // terminal control
-    {
-        "key": "Escape",
-        "command": "workbench.action.togglePanel",
-        "when": "terminalFocus"
-    },
+    // {
+    //     "key": "Escape",
+    //     "command": "workbench.action.togglePanel",
+    //     "when": "terminalFocus"
+    // },
     {
         "key": "ctrl+n",
         "command": "workbench.action.terminal.new",
@@ -109,5 +109,9 @@
         "key": "ctrl+n",
         "command": "editor.action.triggerSuggest",
         "when": "editorHasCompletionItemProvider && !suggestWidgetVisible && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "f6",
+        "command": "cmake.cleanConfigure"
     },
 ]
