@@ -114,4 +114,12 @@
         "key": "f6",
         "command": "cmake.cleanConfigure"
     },
+    {
+        "key": "ctrl+shift+i",
+        "command": "type",
+        "args": {
+            "text": "international chess"
+        },
+        "when": "editorTextFocus"
+    }
 ]
